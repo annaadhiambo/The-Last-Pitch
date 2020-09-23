@@ -5,7 +5,7 @@
 
 ## Description
 * An application that allows users to use that one minute wisely. The users will submit their one minute pitches and other users will vote on them and leave comments to give their feedback on them.
-Here is the [Link]() to my website
+Here is the [Link](https://apppitch.herokuapp.com/) to my website
 
 ## Features
 * Landing page containing wecoming message
