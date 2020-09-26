@@ -33,6 +33,10 @@ $ cd directory-name(Password)
 $ code .
 ```
 
+## Comands used to run the terminal
+* . virtual/bin/activate
+* ./start.sh
+
 
 ## How to contribute
 You can fork the project from the git hub and clone it by following the above instruction

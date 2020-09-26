@@ -15,7 +15,7 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-    title = 'Home - qWelcome this is where you belong'
+    title = 'Home - Welcome this is where you belong'
 
     
     pitches= Pitch.get_all_pitches()  
@@ -41,7 +41,7 @@ def interview():
     View root page function that returns the index page and its data
     '''
     pitches= Pitch.get_all_pitches()
-    title = 'Home - Welcome to The best Pitching Website Online'  
+    title = 'Home - Welcome to The best pitch-Shop Online'  
     return render_template('interview.html', title = title, pitches= pitches )
 
 @main.route('/pick_up_lines/pitches/')
@@ -49,7 +49,7 @@ def pick_up_line():
     '''
     View root page function that returns the index page and its data
     '''
-    title = 'Pick Up Lines'
+    title = 'Pick Up Your pitch now'
 
     pitches= Pitch.get_all_pitches()
 
@@ -60,7 +60,7 @@ def promotion():
     '''
     View root page function that returns the index page and its data
     '''
-    title = 'Promotion Pitches'
+    title = 'Promotion pitch'
 
     pitches= Pitch.get_all_pitches()
 

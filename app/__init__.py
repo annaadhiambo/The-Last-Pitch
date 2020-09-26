@@ -5,8 +5,18 @@ from flask_login import LoginManager
 from flask_bootstrap import Bootstrap
 from flask_uploads import UploadSet,configure_uploads,IMAGES
 from flask_simplemde import SimpleMDE
+from flask_sqlalchemy import SQLAlchemy
 
 
+
+
+# from flask import Blueprint
+
+# auth = Blueprint('auth', __name__)
+
+# from . import views, forms
+
+bootstrap= Bootstrap()
 db = SQLAlchemy()
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
@@ -23,7 +33,7 @@ def create_app(config_name):
 
     #Creating the app configurations
     app.config.from_object(config_options[config_name])
-    app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
+   
 
     #Initializing flask extensions
     bootstrap.init_app(app)

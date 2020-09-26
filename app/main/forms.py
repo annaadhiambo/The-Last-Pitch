@@ -8,9 +8,9 @@ class CommentsForm(FlaskForm):
     submit = SubmitField('SUBMIT')
 
 class PitchForm(FlaskForm):
-    category_id = SelectField('Select Category', choices=[('1', 'Interview'), ('2', 'Pick Up Lines'), ('3', 'Promotion')])
-    content = TextAreaField('make a pitch', validators=[Required()])
-    submit = SubmitField('Create Pitch') 
+    category_id = SelectField('Select Category', choices=[('1', 'interview'), ('2', 'promotion'), ('3', 'pick_up_lines')])
+    content = TextAreaField('make a request', validators=[Required()])
+    submit = SubmitField('pitch') 
 
 class UpvoteForm(FlaskForm):
     '''

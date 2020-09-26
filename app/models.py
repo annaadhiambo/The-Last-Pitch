@@ -36,6 +36,10 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return f'User {self.username}'
 
+    def save_user(self):
+        db.session.add(self)
+        db.session.commit()
+
 class Pitch(db.Model):
     '''
     Pitch class to define Pitch Objects

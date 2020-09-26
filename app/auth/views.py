@@ -5,6 +5,9 @@ from ..models import User
 from .forms import  LoginForm,RegistrationForm
 from .. import db
 from ..email import mail_message
+from flask_http_response import success, result, error
+
+
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     login_form = LoginForm()
@@ -15,7 +18,7 @@ def login():
             return redirect(request.args.get('next') or url_for('main.index'))
 
         flash('Invalid username or Password')
-    title = "Pitch login"
+    title = "pitch_login"
     return render_template('auth/login.html',login_form = login_form, title = title)
 
 @auth.route('/logout')
@@ -24,16 +27,13 @@ def logout():
     logout_user()
     return redirect(url_for("main.index"))
     
-@auth.route('/register', methods=["GET", "POST"])
+@auth.route('api/register', methods=["POST"])
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(email = form.email.data, username = form.username.data,password =form.password.data)
-        db.session.add(user)
-        db.session.commit()
-
-        mail_message("Welcome to pitches","email/welcome_user", user.email,user=user)
-        
-        return redirect(url_for('auth.login'))
-    title = "Register Now"
-    return render_template('auth/register.html',title=title, registration_form =form)
+        user.save_user()       
+        return success.return_response(message='User created Successfully', status=200)
+    else:
+        return error.return_response(message='User not created', status=500)
+    return success.return_response(message='Successfully Completed', status=200)
